@@ -40,6 +40,7 @@ public class attendance {
 			System.out.println("Key in Company name");
 			driver.findElement(login).click();
 			System.out.println("Verified Homepage");
+			driver.quit();
 		} catch (Exception e) {
 			System.out.println("Error:\n" + e.getMessage());
 		}

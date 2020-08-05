@@ -44,7 +44,7 @@
 			<artifactId>allure-testng</artifactId>
 			<version>2.12.0</version>
 		</dependency>
-		
+
 	</dependencies>
 	<reporting>
 		<excludeDefaults>true</excludeDefaults>
@@ -72,31 +72,32 @@
 				<version>2.19.1</version>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
-				<!-- 	<argLine>
-						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-					</argLine> -->
+					<!-- <argLine> -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar" 
+						</argLine> -->
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
-			<!-- 	<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjweaver</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-				</dependencies> -->
+				<!-- <dependencies> <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjweaver</artifactId> 
+					<version>${aspectj.version}</version> </dependency> </dependencies> -->
 			</plugin>
 
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
+			
+  <plugin>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>3.1.0</version>
+    <configuration>
+      <filesets>
+        <fileset>
+          <directory>${basedir}</directory>
+          <includes>
+            <include>allure-results/*.json</include>
+          </includes>
+          <followSymlinks>false</followSymlinks>
+        </fileset>
+      </filesets>
+    </configuration>
+  </plugin>
 		</plugins>
 	</build>
 </project>
