@@ -1,5 +1,7 @@
 package attendance.empx;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +26,7 @@ public class attendance {
 
 			// TimeUnit.SECONDS.sleep(5);
 			driver.get("https://live2.empxtrack.com");
-			driver.manage().window().fullscreen();
+			
 			System.out.println("Opening Browser");
 			WebElement usrnm = driver.findElement(user);
 			usrnm.clear();
@@ -32,7 +34,7 @@ public class attendance {
 			System.out.println("Key in Username");
 			WebElement pssw = driver.findElement(psswrd);
 			pssw.clear();
-			pssw.sendKeys("Cbe12345");
+			pssw.sendKeys("M00lya123");
 			System.out.println("Key in Password");
 			WebElement comp = driver.findElement(cmpany);
 			comp.clear();
@@ -40,7 +42,13 @@ public class attendance {
 			System.out.println("Key in Company name");
 			driver.findElement(login).click();
 			System.out.println("Verified Homepage");
-			driver.quit();
+			//driver.quit();
+			driver.manage().window().fullscreen();
+			TimeUnit.SECONDS.sleep(5);
+			driver.findElement(By.id("myAttendance")).click();
+			TimeUnit.SECONDS.sleep(5);
+			WebElement attButton = driver.findElement(By.xpath("//div[@class='col-md-7']/a"));
+			System.out.println("Button name:\t"+attButton.getText());
 		} catch (Exception e) {
 			System.out.println("Error:\n" + e.getMessage());
 		}
