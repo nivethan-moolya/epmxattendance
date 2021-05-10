@@ -1,3 +1,1 @@
-@echo off
-java –cp bin;lib/* org.testng.TestNG Testng.xml
-pause
+java –cp bin;lib/* org.testng.TestNG TestNG.xml
