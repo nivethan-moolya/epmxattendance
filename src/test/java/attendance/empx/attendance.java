@@ -49,6 +49,7 @@ public class attendance {
 			TimeUnit.SECONDS.sleep(5);
 			WebElement attButton = driver.findElement(By.xpath("//div[@class='col-md-7']/a"));
 			System.out.println("Button name:\t"+attButton.getText());
+			attButton.click();
 		} catch (Exception e) {
 			System.out.println("Error:\n" + e.getMessage());
 		}
